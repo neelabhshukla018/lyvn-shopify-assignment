@@ -1,0 +1,105 @@
+{{ 'lyvn-rewards.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'lyvn-rewards.js' | asset_url }}" defer></script>
+
+{% assign product_price = product.price | default: 199900 %}
+{% assign formatted_price = product_price | money %}
+
+<section class="rewards-section">
+  <div class="rewards-wrapper">
+
+    <header class="rewards-header">
+      <div class="header-content">
+        <h2>LYVN Rewards</h2>
+        <p>Earn reward coins on every purchase and redeem them on your next order.</p>
+      </div>
+
+      <div class="reward-icon" aria-hidden="true">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="34"
+          height="34"
+          fill="currentColor"
+          viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm.5-11.5v1.084a2.5 2.5 0 0 1 1.992 2.416h-1.5a1 1 0 1 0-1 1h1a2.5 2.5 0 0 1 .508 4.948V14h-1v-1.052A2.5 2.5 0 0 1 5.5 10.5H7a1 1 0 1 0 1-1H7a2.5 2.5 0 0 1-.5-4.948V3.5h2z"/>
+        </svg>
+      </div>
+    </header>
+
+    <div class="reward-grid">
+
+      {% render 'reward-card',
+        label: 'Product Price',
+        value: formatted_price
+      %}
+
+      {% render 'reward-card',
+        label: 'Coins to Earn',
+        value: '--'
+      %}
+
+      {% render 'reward-card',
+        label: 'Available Coins',
+        value: '0'
+      %}
+
+    </div>
+
+    <div class="redeem-card">
+
+      <label class="redeem-option">
+        <input
+          id="redeemCoins"
+          type="checkbox">
+
+        <span>Use available reward coins on this purchase</span>
+      </label>
+
+      <p
+        id="discountInfo"
+        class="discount-note">
+        Your available reward coins can be redeemed for an instant discount.
+      </p>
+
+    </div>
+
+    <div class="price-summary">
+
+      <div class="summary-item">
+        <span>Order Total</span>
+
+        <strong id="originalTotal">
+          {{ formatted_price }}
+        </strong>
+      </div>
+
+      <div class="summary-item total">
+        <span>Amount to Pay</span>
+
+        <strong id="finalTotal">
+          {{ formatted_price }}
+        </strong>
+      </div>
+
+    </div>
+
+    <button
+      id="earnCoinsBtn"
+      class="purchase-btn"
+      type="button">
+      Simulate Purchase
+    </button>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "LYVN Rewards",
+  "settings": [],
+  "presets": [
+    {
+      "name": "LYVN Rewards"
+    }
+  ]
+}
+{% endschema %}

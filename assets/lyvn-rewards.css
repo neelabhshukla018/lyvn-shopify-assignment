@@ -1,0 +1,176 @@
+:root{
+  --primary:#111827;
+  --primary-hover:#1f2937;
+  --text:#111827;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --surface:#ffffff;
+  --background:#f7f8fa;
+  --accent:#fff7db;
+  --radius:20px;
+  --transition:.25s ease;
+}
+
+.rewards-section{
+  background:var(--background);
+  padding:80px 20px;
+}
+
+.rewards-wrapper{
+  max-width:760px;
+  margin:0 auto;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:2rem;
+  box-shadow:0 20px 50px rgba(0,0,0,.06);
+}
+
+.rewards-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1.5rem;
+  margin-bottom:2rem;
+}
+
+.header-content h2{
+  margin:0;
+  font-size:2rem;
+  color:var(--text);
+}
+
+.header-content p{
+  margin-top:.5rem;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+.reward-icon{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--accent);
+  color:var(--primary);
+  flex-shrink:0;
+}
+
+.reward-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+  margin-bottom:2rem;
+}
+
+.reward-item{
+  padding:1.25rem;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#fafafa;
+}
+
+.reward-item .label{
+  display:block;
+  margin-bottom:.5rem;
+  color:var(--muted);
+  font-size:.85rem;
+}
+
+.reward-item .value{
+  font-size:1.4rem;
+  font-weight:700;
+  color:var(--text);
+}
+
+.redeem-card{
+  padding:1.25rem;
+  background:#f9fafb;
+  border-radius:16px;
+  margin-bottom:2rem;
+}
+
+.redeem-option{
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.redeem-option input{
+  width:18px;
+  height:18px;
+}
+
+.discount-note{
+  margin-top:1rem;
+  color:#4b5563;
+  line-height:1.6;
+}
+
+.price-summary{
+  margin-bottom:2rem;
+}
+
+.summary-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 0;
+  border-bottom:1px solid var(--border);
+}
+
+.summary-item.total{
+  border-bottom:none;
+  font-size:1.1rem;
+}
+
+.purchase-btn{
+  width:100%;
+  border:0;
+  border-radius:14px;
+  padding:1rem;
+  background:var(--primary);
+  color:#fff;
+  font-size:1rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:var(--transition);
+}
+
+.purchase-btn:hover{
+  background:var(--primary-hover);
+  transform:translateY(-2px);
+}
+
+.purchase-btn:active{
+  transform:translateY(0);
+}
+
+@media (max-width:768px){
+
+  .rewards-section{
+    padding:50px 16px;
+  }
+
+  .rewards-wrapper{
+    padding:1.5rem;
+  }
+
+  .rewards-header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .reward-grid{
+    grid-template-columns:1fr;
+  }
+
+  .header-content h2{
+    font-size:1.75rem;
+  }
+
+}

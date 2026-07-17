@@ -1,0 +1,37 @@
+<div class="reward-item">
+
+  <span class="label">
+    {{ label }}
+  </span>
+
+  {% case label %}
+
+    {% when 'Product Price' %}
+      <span
+        class="value"
+        id="productPrice">
+        {{ value }}
+      </span>
+
+    {% when 'Coins to Earn' %}
+      <span
+        class="value"
+        id="earnedCoins">
+        {{ value }}
+      </span>
+
+    {% when 'Available Coins' %}
+      <span
+        class="value"
+        id="availableCoins">
+        {{ value }}
+      </span>
+
+    {% else %}
+      <span class="value">
+        {{ value }}
+      </span>
+
+  {% endcase %}
+
+</div>

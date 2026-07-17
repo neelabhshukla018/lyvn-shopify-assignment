@@ -1,0 +1,85 @@
+{{ 'lyvn-returns.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'lyvn-returns.js' | asset_url }}" defer></script>
+
+<section class="returns-page">
+  <div class="returns-wrapper">
+
+    <header class="returns-header">
+      <h1>Returns & Exchanges</h1>
+      <p>Select the option that best matches your request.</p>
+    </header>
+
+    <form class="returns-card" id="returnsForm">
+
+      <!-- Action Type -->
+      <div class="returns-tabs">
+        <button
+          type="button"
+          class="tab-btn active"
+          data-type="exchange"
+          aria-pressed="true">
+          Exchange
+        </button>
+
+        <button
+          type="button"
+          class="tab-btn"
+          data-type="return"
+          aria-pressed="false">
+          Return
+        </button>
+      </div>
+
+      <!-- Reason -->
+      <div class="form-group">
+        <label for="returnReason">Reason</label>
+
+        <select id="returnReason" required>
+          <option value="">Choose a reason</option>
+
+          <option value="small">Size too small</option>
+          <option value="large">Size too large</option>
+          <option value="fit">Fit not as expected</option>
+
+          <option value="mind">Changed my mind</option>
+          <option value="mistake">Ordered by mistake</option>
+          <option value="expected">Product not as expected</option>
+          <option value="damaged">Damaged item</option>
+        </select>
+      </div>
+
+      <!-- Dynamic Message -->
+      <div id="statusMessage" class="message-box">
+        Please choose a reason to continue.
+      </div>
+
+      <!-- Visible only for damaged items -->
+      <div id="damageUpload" class="upload-area hidden">
+        <label for="productImage">Upload product image</label>
+
+        <input
+          id="productImage"
+          type="file"
+          accept="image/*">
+      </div>
+
+      <button type="submit" class="submit-btn">
+        Continue
+      </button>
+
+    </form>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "LYVN Returns",
+  "settings": [],
+  "presets": [
+    {
+      "name": "LYVN Returns"
+    }
+  ]
+}
+{% endschema %}

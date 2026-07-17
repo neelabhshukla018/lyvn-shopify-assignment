@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "lyvn-rewards",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
