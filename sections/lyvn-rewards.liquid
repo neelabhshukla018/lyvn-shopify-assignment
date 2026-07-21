@@ -4,13 +4,19 @@
 {% assign product_price = product.price | default: 199900 %}
 {% assign formatted_price = product_price | money %}
 
-<section class="rewards-section">
+<section
+  class="rewards-section"
+  id="lyvnRewards"
+  data-price="{{ product_price | divided_by: 100.0 }}"
+>
   <div class="rewards-wrapper">
 
     <header class="rewards-header">
       <div class="header-content">
         <h2>LYVN Rewards</h2>
-        <p>Earn reward coins on every purchase and redeem them on your next order.</p>
+        <p>
+          Earn reward coins on every purchase and redeem them on your next order.
+        </p>
       </div>
 
       <div class="reward-icon" aria-hidden="true">
@@ -19,7 +25,8 @@
           width="34"
           height="34"
           fill="currentColor"
-          viewBox="0 0 16 16">
+          viewBox="0 0 16 16"
+        >
           <path d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm.5-11.5v1.084a2.5 2.5 0 0 1 1.992 2.416h-1.5a1 1 0 1 0-1 1h1a2.5 2.5 0 0 1 .508 4.948V14h-1v-1.052A2.5 2.5 0 0 1 5.5 10.5H7a1 1 0 1 0 1-1H7a2.5 2.5 0 0 1-.5-4.948V3.5h2z"/>
         </svg>
       </div>
@@ -27,20 +34,20 @@
 
     <div class="reward-grid">
 
-      {% render 'reward-card',
-        label: 'Product Price',
-        value: formatted_price
-      %}
+      <div class="reward-card">
+        <span>Product Price</span>
+        <strong>{{ formatted_price }}</strong>
+      </div>
 
-      {% render 'reward-card',
-        label: 'Coins to Earn',
-        value: '--'
-      %}
+      <div class="reward-card">
+        <span>Coins to Earn</span>
+        <strong id="earnedCoins">0 Coins</strong>
+      </div>
 
-      {% render 'reward-card',
-        label: 'Available Coins',
-        value: '0'
-      %}
+      <div class="reward-card">
+        <span>Available Coins</span>
+        <strong id="availableCoins">0 Coins</strong>
+      </div>
 
     </div>
 
@@ -49,15 +56,17 @@
       <label class="redeem-option">
         <input
           id="redeemCoins"
-          type="checkbox">
+          type="checkbox"
+        >
 
         <span>Use available reward coins on this purchase</span>
       </label>
 
       <p
         id="discountInfo"
-        class="discount-note">
-        Your available reward coins can be redeemed for an instant discount.
+        class="discount-note"
+      >
+        Redeem your available reward coins for an instant discount.
       </p>
 
     </div>
@@ -85,7 +94,8 @@
     <button
       id="earnCoinsBtn"
       class="purchase-btn"
-      type="button">
+      type="button"
+    >
       Simulate Purchase
     </button>
 
